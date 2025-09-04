@@ -1,22 +1,23 @@
-﻿class Rectangle
+﻿public class Solution
 {
-    public int x = 10, y = 20;
-    public int GetAreaRectangle(int a, int b)
+    public int FindClosest(int x, int y, int z)
     {
-        return a * b;
+        int dx = Math.Abs(x - z);
+        int dy = Math.Abs(y - z);
+
+        if (dx == dy) return 0;
+        return dx < dy ? 1 : 2;
     }
 }
 
-class Square : Rectangle
+class Testing : Solution
 {
-    public int GetAreaSquare(Rectangle rectangle) {
-        return rectangle.GetAreaRectangle(x, y);
-    }
-
-    static void Main(string[] args)
+    static void Main()
     {
-        Square square = new Square();
-        int area = square.GetAreaSquare(square);
-        Console.WriteLine($"Area of the square: {area}");
+        var answer = new Solution();
+        Console.WriteLine(answer.FindClosest(2, 10, 10));
+        Console.WriteLine(answer.FindClosest(4, 3, 2));
+        Console.WriteLine(answer.FindClosest(12, 34, 16));
+        Console.WriteLine(answer.FindClosest(1, 1, 2));
     }
 }
