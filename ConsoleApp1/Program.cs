@@ -2,9 +2,9 @@
 {
     public static class Solution
     {
-        public static string boolToWord(bool word)
+        public static string Smash(string[] words)
         {
-            return word ? "Yes" : "No";
+            return string.Join(" ", words);
         }
     }
 }

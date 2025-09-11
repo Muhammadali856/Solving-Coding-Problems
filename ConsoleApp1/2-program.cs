@@ -6,7 +6,8 @@ namespace ConsoleApp2
     {
         public static void Main()
         {
-            Console.WriteLine(Solution.boolToWord(false));
+            string[] words = { "Hello", "World" };
+            Console.WriteLine(Solution.Smash(words));
         }
     }
 }
