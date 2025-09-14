@@ -5,27 +5,29 @@ namespace ConsoleApp1
 {
     public static class Solution
     {
-        public static int[] ArrayDif(int[] a, int[] b)
+        public static string Rot13(string message)
         {
-            List<int> returnArray = new List<int>();
-            for (int i = 0; i < a.Length; i++)
+            char[] result = new char[message.Length];
+
+            for (int i = 0; i < message.Length; i++)
             {
-                bool found = false;
-                for (int y = 0; y < b.Length; y++)
+                char c = message[i];
+
+                if (c >= 'a' && c <= 'z')
                 {
-                    if (a[i] == b[y])
-                    {
-                        found = true;
-                        break;
-                    }
+                    result[i] = (char)((c - 'a' + 13) % 26 + 'a');
                 }
-                if (!found)
+                else if (c >= 'A' && c <= 'Z')
                 {
-                    returnArray.Add(a[i]);
+                    result[i] = (char)((c - 'A' + 13) % 26 + 'A');
+                }
+                else
+                {
+                    result[i] = c; // Non-alphabetic characters stay the same
                 }
             }
 
-            return returnArray.ToArray();
+            return new string(result);
         }
     }
-}
+}   
