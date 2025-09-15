@@ -6,7 +6,14 @@ namespace ConsoleApp2
     {
         public static void Main()
         {
-            Solution.Rot13("Hello, World!");
+
+            string[] array1 = { "kala", "bara", "tara", "noh" };
+            string[] array2 = { "barakala", "bakabara", "nothing" };
+
+            string[] output = Solution.inArray(array1, array2);
+
+            Console.WriteLine(string.Join(", ", output));
+
         }
     }
 }

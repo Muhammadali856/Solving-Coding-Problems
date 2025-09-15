@@ -1,33 +1,25 @@
-﻿using System.Linq;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace ConsoleApp1
 {
     public static class Solution
     {
-        public static string Rot13(string message)
+        public static string[] inArray(string[] array1, string[] array2)
         {
-            char[] result = new char[message.Length];
-
-            for (int i = 0; i < message.Length; i++)
+            List<string> result = new List<string>();
+            foreach (string str1 in array1)
             {
-                char c = message[i];
-
-                if (c >= 'a' && c <= 'z')
+                foreach (string str2 in array2)
                 {
-                    result[i] = (char)((c - 'a' + 13) % 26 + 'a');
-                }
-                else if (c >= 'A' && c <= 'Z')
-                {
-                    result[i] = (char)((c - 'A' + 13) % 26 + 'A');
-                }
-                else
-                {
-                    result[i] = c; // Non-alphabetic characters stay the same
+                    if (str2.Contains(str1))
+                    {
+                        result.Add(str1);
+                        break;
+                    }
                 }
             }
 
-            return new string(result);
+            return result.OrderBy(s => s).ToArray();
         }
     }
 }   
