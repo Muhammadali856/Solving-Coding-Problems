@@ -1,27 +1,24 @@
-﻿public class Solution
+﻿namespace Solution
 {
-    public ListNode? MergeTwoLists(ListNode? list1, ListNode? list2)
+    public class SolutionClass
     {
-        var dummy = new ListNode(-1);
-        var tail = dummy;
-
-        while (list1 != null && list2 != null)
+        public int RemoveDuplications(int[] nums)
         {
-            if (list1.val <= list2.val)
+            int k = 1;
+            if (nums == null)
             {
-                tail.next = list1;
-                list1 = list1.next;
+                return k;
             }
-            else
+
+            for (int i = 1; i < nums.Length; i++)
             {
-                tail.next = list2;
-                list2 = list2.next;
+                if (nums[i] > nums[i-1])
+                {
+                    k++;
+                }
             }
-            tail = tail.next!;
+
+            return k;
         }
-
-        tail.next = list1 ?? list2;
-
-        return dummy.next;
     }
 }
