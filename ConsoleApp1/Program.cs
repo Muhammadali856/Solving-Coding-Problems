@@ -1,25 +1,16 @@
-﻿using System.Collections.Generic;
+﻿using System;
 
-namespace ConsoleApp1
+class Program
 {
-    public static class Solution
+    static void Main()
     {
-        public static string[] inArray(string[] array1, string[] array2)
-        {
-            List<string> result = new List<string>();
-            foreach (string str1 in array1)
-            {
-                foreach (string str2 in array2)
-                {
-                    if (str2.Contains(str1))
-                    {
-                        result.Add(str1);
-                        break;
-                    }
-                }
-            }
+        var list1 = ListHelpers.Build(new[] { 1, 2, 4 });
+        var list2 = ListHelpers.Build(new[] { 1, 3, 2, 4 });
 
-            return result.OrderBy(s => s).ToArray();
-        }
+        var sol = new Solution();
+        var merged = sol.MergeTwoLists(list1, list2);
+
+        Console.Write("Merged: ");
+        ListHelpers.Print(merged);
     }
-}   
+}
